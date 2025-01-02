@@ -1,0 +1,51 @@
+bro ye id ("taskInput") wala lake taskInput me rakhde;
+bro ye id ("addTaskBtn") wala lake addTaskBtn me rakhde;
+bro ye id ("taskList") wala lake taskList me rakhde;
+
+
+bro addTaskBtn pe sun("click", addTask());
+
+bro function addTask(){
+    bro taskInput ki value taskText me rakhde;
+
+    bro agar (taskText == ''){
+        bro dikha de("Please enter a task.");
+    } 
+    bro leave it{
+        bro document me "li" ka nya element taskItem me bna de;
+        bro taskItem ki classes me 'task-item' add krde;
+
+        bro taskItem ka text bdl ke (taskText) krde;
+            
+        bro document me "button" ka nya element completeBtn me bna de;
+        bro completeBtn ka text bdl ke ("Complete") krde;
+        bro completeBtn ki classes me 'complete-btn' add krde;
+
+        bro document me "button" ka nya element removeBtn me bna de;
+        bro removeBtn ka text bdl ke ("Remove") krde;
+        bro removeBtn ki classes me 'remove-btn' add krde;
+
+        bro taskItem me completeBtn append krde;
+        bro taskItem me removeBtn append krde;
+
+        bro taskList me taskItem append krde;
+
+        bro completeBtn pe sun("click", toggleComplete(taskItem));
+        bro removeBtn pe sun("click", removeTask(taskItem));
+    }
+}
+
+
+
+bro function toggleComplete(taskItem){
+    bro isko (".complete-btn") uthake completedBtn me rakhde;
+
+    bro completedBtn ka display 'none' krde;
+    bro taskItem ki classes me 'completed' toggle krde;
+}
+
+bro function removeTask(taskItem){
+    bro taskItem hta de;
+}
+
+bro dikha de("chlgya oee");
