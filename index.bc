@@ -47,5 +47,3 @@ bro function toggleComplete(taskItem){
 bro function removeTask(taskItem){
     bro taskItem hta de;
 }
-
-bro dikha de("chlgya oee");
